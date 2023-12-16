@@ -2,32 +2,32 @@
 
     <main id="edit" class="container">
         <h2 class="edit__title">EDITAR ITEM</h2>
-        <form class="edit__form" action="/admin/edit" method="POST" enctype="application/x-www-form-urlencoded">
+        <form class="edit__form" action="/admin/edit/<%= product.product_id %>?_method=PUT" method="POST" enctype="multipart/form-data">
             <div class="form__flex">
                 <div class="form__box--flex">
                     <label class="form__label" for="category">Categoría:</label>
                     <select class="form__select" name="category" id="category" required>
                         <% if(product.category_id == 1) { %>
                             <option value="1" selected>Figuras Coleccionables</option>
-                            <option value="3">Llaveros</option>
-                            <option value="2">Remeras</option>
+                            <option value="2">Llaveros</option>
+                            <option value="3">Remeras</option>
                         <% } %>
                         <% if(product.category_id == 2) { %>
                             <option value="1">Figuras Coleccionables</option>
-                            <option value="3">Llaveros</option>
-                            <option value="2" selected>Remeras</option>
+                            <option value="2">Llaveros</option>
+                            <option value="3" selected>Remeras</option>
                         <% } %>
                         <% if(product.category_id == 3) { %>
                             <option value="1">Figuras Coleccionables</option>
-                            <option value="3" selected>Llaveros</option>
-                            <option value="2">Remeras</option>
+                            <option value="2" selected>Llaveros</option>
+                            <option value="3">Remeras</option>
                         <% } %>
                     </select>
                 </div>
                 <div class="form__box--flex">
-                    <label class="form__label" for="collection">Licencia:</label>
-                    <select class="form__select" name="collection" id="collection" required>
-                        <% if(product.licence_id==2) { %>
+                    <label class="form__label" for="licence">Licencia:</label>
+                    <select class="form__select" name="licence" id="licence" required>
+                        <% if( product.licence_id==2) { %>
                             <option value="1" selected>Star Wars</option>
                             <option value="2">Pokemon</option>
                             <option value="3">Harry Potter</option>

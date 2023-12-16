@@ -1,5 +1,5 @@
 const path = require("path");
-const { getAll, getOne, edit } = require('../models/product.model');
+const { getAll, getOne } = require('../models/product.model');
 
 module.exports = {
   shop: async (req, res) => {
@@ -14,17 +14,7 @@ module.exports = {
   item: async (req, res) => {
     const itemId = req.params.id;
 
-    const [ item ] = await getOne(itemId);
-    
-    res.render(path.resolve(__dirname, "../views/shop/item.ejs"), {
-      title: "Item",
-      item
-    });
-  },
-  item: async (req, res) => {
-    const itemId = req.params.id;
-
-    const [ item ] = await edit(itemId);
+    const [item] = await getOne({ product_id: itemId });
     
     res.render(path.resolve(__dirname, "../views/shop/item.ejs"), {
       title: "Item",
